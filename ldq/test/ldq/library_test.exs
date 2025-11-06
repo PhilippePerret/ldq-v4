@@ -60,4 +60,58 @@ defmodule LdQ.LibraryTest do
       assert %Ecto.Changeset{} = Library.change_book(book)
     end
   end
+
+  describe "book_cards" do
+    alias LdQ.Library.BCard
+
+    import LdQ.LibraryFixtures
+
+    @invalid_attrs %{readings: nil}
+
+    test "list_book_cards/0 returns all book_cards" do
+      b_card = b_card_fixture()
+      assert Library.list_book_cards() == [b_card]
+    end
+
+    test "get_b_card!/1 returns the b_card with given id" do
+      b_card = b_card_fixture()
+      assert Library.get_b_card!(b_card.id) == b_card
+    end
+
+    test "create_b_card/1 with valid data creates a b_card" do
+      valid_attrs = %{readings: 42}
+
+      assert {:ok, %BCard{} = b_card} = Library.create_b_card(valid_attrs)
+      assert b_card.readings == 42
+    end
+
+    test "create_b_card/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Library.create_b_card(@invalid_attrs)
+    end
+
+    test "update_b_card/2 with valid data updates the b_card" do
+      b_card = b_card_fixture()
+      update_attrs = %{readings: 43}
+
+      assert {:ok, %BCard{} = b_card} = Library.update_b_card(b_card, update_attrs)
+      assert b_card.readings == 43
+    end
+
+    test "update_b_card/2 with invalid data returns error changeset" do
+      b_card = b_card_fixture()
+      assert {:error, %Ecto.Changeset{}} = Library.update_b_card(b_card, @invalid_attrs)
+      assert b_card == Library.get_b_card!(b_card.id)
+    end
+
+    test "delete_b_card/1 deletes the b_card" do
+      b_card = b_card_fixture()
+      assert {:ok, %BCard{}} = Library.delete_b_card(b_card)
+      assert_raise Ecto.NoResultsError, fn -> Library.get_b_card!(b_card.id) end
+    end
+
+    test "change_b_card/1 returns a b_card changeset" do
+      b_card = b_card_fixture()
+      assert %Ecto.Changeset{} = Library.change_b_card(b_card)
+    end
+  end
 end

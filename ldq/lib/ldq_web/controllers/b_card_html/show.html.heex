@@ -1,0 +1,15 @@
+<.header>
+  B card {@b_card.id}
+  <:subtitle>This is a b_card record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/book_cards/#{@b_card}/edit"}>
+      <.button>Edit b_card</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Readings">{@b_card.readings}</:item>
+</.list>
+
+<.back navigate={~p"/book_cards"}>Back to book_cards</.back>

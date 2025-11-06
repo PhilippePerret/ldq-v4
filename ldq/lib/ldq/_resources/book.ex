@@ -16,6 +16,6 @@ defmodule LdQ.Library.Book do
   def changeset(book, attrs) do
     book
     |> cast(attrs, [:title, :isbn, :year])
-    |> validate_required([:title, :isbn, :year])
+    |> validate_required([:title])
   end
 end

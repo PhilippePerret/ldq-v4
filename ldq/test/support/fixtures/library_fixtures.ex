@@ -19,4 +19,18 @@ defmodule LdQ.LibraryFixtures do
 
     book
   end
+
+  @doc """
+  Generate a b_card.
+  """
+  def b_card_fixture(attrs \\ %{}) do
+    {:ok, b_card} =
+      attrs
+      |> Enum.into(%{
+        readings: 42
+      })
+      |> LdQ.Library.create_b_card()
+
+    b_card
+  end
 end

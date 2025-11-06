@@ -1,0 +1,8 @@
+<.header>
+  Edit B card {@b_card.id}
+  <:subtitle>Use this form to manage b_card records in your database.</:subtitle>
+</.header>
+
+<.b_card_form changeset={@changeset} action={~p"/book_cards/#{@b_card}"} />
+
+<.back navigate={~p"/book_cards"}>Back to book_cards</.back>

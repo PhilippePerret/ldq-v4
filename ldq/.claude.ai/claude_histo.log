@@ -26,3 +26,15 @@
 - URL : `url: [host: "www.atelier-icare.net", path: "/ldq", port: 8104]`
 - Port : 8104
 - Server démarré automatiquement avec `server: true`
+
+**Problème récurrent NON RÉSOLU : Nœud Erlang bloqué en production**
+- Erreur : `Protocol 'inet_tcp': the name ldq@http16 seems to be in use by another Erlang node`
+- Le nœud Erlang reste bloqué après déploiement
+- `_build/prod/rel/ldq/bin/ldq stop` échoue avec `RPC failed with reason :noconnection`
+- `pkill -9 -f "ldq/bin/ldq"` et `kill -9` sur les PIDs beam ne fonctionnent pas
+- **IMPORTANT : Le démarrage se fait via un BOUTON dans l'interface d'administration Alwaysdata**
+- **IL N'Y A PAS de bouton pour arrêter le serveur dans l'interface AD**
+- **PAS de script de démarrage utilisé côté utilisateur**
+- Probablement lié aux restrictions AD (Alwaysdata)
+- Le nom du nœud `ldq@http16` est fixe et crée un conflit à chaque redéploiement
+- **SOLUTION À TROUVER**

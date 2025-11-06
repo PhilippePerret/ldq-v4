@@ -18,6 +18,7 @@ defmodule LdQWeb.Router do
     pipe_through :browser
 
     resources "/books", BookController
+    resources "/book_cards", BCardController
     get "/", PageController, :home
   end
 
