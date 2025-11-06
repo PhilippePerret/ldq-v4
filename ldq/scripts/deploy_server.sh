@@ -4,6 +4,8 @@ set -e
 source /home/icare/www/ldq/.secrets/env
 cd /home/icare/www/ldq
 export MIX_ENV=prod
+# _build/prod/rel/ldq/bin/ldq stop
+# rm -rf _build
 echo "Obtention des dépendances…"
 mix deps.get
 echo "Compilation…"

@@ -518,7 +518,7 @@ defmodule LdQWeb.CoreComponents do
     ~H"""
     <div>
       <dl>
-        <div>
+        <div :for={item <- @item}>
           <dt>{item.title}</dt>
           <dd>{render_slot(item)}</dd>
         </div>

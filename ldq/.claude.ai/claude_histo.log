@@ -1,0 +1,28 @@
+## Historique de travail - LdQ Phoenix
+
+### 2025-11-06
+
+**Problème résolu : Bundle CSS avec @import**
+- Problème : esbuild ne bundlait pas les @import CSS, le fichier généré contenait uniquement le commentaire par défaut
+- Solution : 
+  1. Ajouter `import "../css/app.css"` dans `assets/js/app.js`
+  2. Retirer `css/app.css` des args esbuild dans `config/config.exs` (ligne 40)
+  3. Lancer `mix phx.digest.clean --all` pour supprimer les anciens fichiers hashés
+  4. Rebuilder avec `mix assets.build`
+
+**Problème résolu : Plug.Static pour local vs production**
+- Problème : Le path `/ldq` est nécessaire en production mais pas en local
+- Erreur précédente : tentative de mettre `plug Plug.Static` dans `config/prod.exs` (impossible, doit être dans un module)
+- Solution : Conditionner le `at:` dans `lib/ldq_web/endpoint.ex` :
+  ```elixir
+  plug Plug.Static,
+    at: if(Mix.env() == :prod, do: "/ldq", else: "/"),
+    from: :ldq,
+    gzip: true,
+    only: LdQWeb.static_paths()
+  ```
+
+**Configuration production dans config/prod.exs**
+- URL : `url: [host: "www.atelier-icare.net", path: "/ldq", port: 8104]`
+- Port : 8104
+- Server démarré automatiquement avec `server: true`
