@@ -1,7 +1,7 @@
 defmodule LdQWeb.BCardHTML do
   use LdQWeb, :html
 
-  embed_templates "b_card_html/*"
+  embed_templates "lib_book_card_html/*"
 
   @doc """
   Renders a b_card form.

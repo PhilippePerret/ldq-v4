@@ -1,8 +1,8 @@
 # ARCHITECTURE
 
-*Ce document vise à décrire l’architecture de la version 3 du site LdQ.*
+*Ce document vise à décrire l’architecture de la version 4 du site LdQ.*
 
-Cette version 3 est marquée par un choix important : l’utilisation d’un *parapluie Phoenix* (`Umbrella`). Il s’agit donc, pour ne pas se noyer, de séparer complètement les domaines-métier, à savoir :
+Cette version 4 est marquée par l’abandon de l’utilisation d’un *parapluie Phoenix*. Mais en gardant une séparation forte entre les choses :
 
 * L’**ADMINISTRATION** du label (qui gère l’ensemble du site, aussi bien au niveau administratif qu’au niveau de la programmation).
 * Le **COMITÉ DE LECTURE** du label, qui s’occupe des membres, gère leurs activités, leur permet une communication productive. On devrait d’ailleurs parler de « comités » au pluriel puisqu’il y en a de nombreux.
@@ -18,3 +18,16 @@ Cette version 3 est marquée par un choix important : l’utilisation d’un *pa
 *(Section qui décrit les grands principes qui veulent être respectés dans ce développement)*
 
 * **Déploiement continu**. Pour ne pas être confronté tout à coup au problème épineux du déploiement, le site verra un déploiement régulier et fréquent, et ce dès sa toute première implémentation (où l’on ne trouvera que la base du site avec ses grandes sections (appelées, selon Phoenix, les « applications » du parapluie).
+
+## Problème des placements des ressources
+
+Un point épineux est le placement des ressources, entendu qu’elles servent dans plusieurs parties. Le cas typique, ce sont les livres, qui servent pour la bibliothèque (library) en tant que livre à lire mais également dans le comité de lecture, où ils sont pris et évalués par les membres ou encore dans l’**Arêne** qui est le lieu où ils sont vraiment en « compétition », en « évaluation ». 
+
+Il est choisi, pour cette ressource, de la laisser dans la bibliothèque (but ultime de cette application), avec des status différents qui permettront de vite savoir où ils en sont. Les quatre statuts principaux du livre étant : 
+
+* **en proposition** (le livre est proposé à l’estimation, mais il n’est pas encore en lice)
+* **en évaluation** (le livre a été accepté et se trouve mis en évaluation — choisi par les membres du comité, suivi par un parrain)
+* **labelisation refusée** (le livre n’a pas reçu le label, a été rejeté pour x ou y raisons)
+* **labélisé, en diffusion** (le livre a reçu le label, il peut être choisi dans la bibliothèque du site).
+
+On peut donc dire que « physiquement », c’est toujours à la bibliothèque qu’on amène ses livres et qu’on peut en retirer, en lire.
