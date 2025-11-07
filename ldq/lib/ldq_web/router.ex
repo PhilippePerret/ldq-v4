@@ -16,6 +16,7 @@ defmodule LdQWeb.Router do
 
   scope "/vitrine", LdQWeb do
     pipe_through :browser
+    get "/:page_id", ShowcaseController, :shower
     get "/", ShowcaseController, :home
   end
 
