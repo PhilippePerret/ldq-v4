@@ -14,6 +14,27 @@ defmodule LdQWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/vitrine", LdQWeb do
+    pipe_through :browser
+    get "/", ShowcaseController, :home
+  end
+
+  scope "/comite", LdQWeb do
+    pipe_through :browser
+    get "/", ComiteController, :home
+  end
+
+  scope "/arena", LdQWeb do
+    pipe_through :browser
+    get "/", ArenaController, :home
+  end
+
+  scope "/biblio", LdQWeb do
+    pipe_through :browser
+
+    get "/", LibraryController, :home
+  end
+
   scope "/", LdQWeb do
     pipe_through :browser
 

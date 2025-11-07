@@ -11,7 +11,13 @@
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
   </head>
-  <body class="bg-white">
+  <body>
+    <header>
+      <a href={~p"/vitrine"}>le label</a>
+      <a href={~p"/biblio"}>bibliothèque</a>
+      <a href={~p"/comite"}>comité (de lecture)</a>
+      <a href={~p"/arena"}>arêne (des livres)</a>
+    </header>
     {@inner_content}
   </body>
 </html>
