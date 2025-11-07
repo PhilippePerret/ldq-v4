@@ -1,4 +1,7 @@
 defmodule LdQ.Book do
+  @moduledoc """
+  Le module pour gérer les livres.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
