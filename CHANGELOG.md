@@ -1,3 +1,8 @@
+### 08/11/2025
+
+* Styling distant ok
+* Poursuite de l'installation de la base
+
 ### 07/11/2025
 
 * Travail sur les liens

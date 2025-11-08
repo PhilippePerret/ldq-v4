@@ -2,12 +2,17 @@ defmodule LdQWeb.ShowcaseController do
   use LdQWeb, :controller
 
   def home(conn, _params) do
-    render(conn, :home)
+    render(conn, :home, layout: {LdQWeb.Layouts, :showcase})
   end
 
   def shower(conn, %{"page_id" => page_id} = _params) do
     IO.puts "Page à voir: #{inspect page_id}"
-    render(conn, :shower, %{page_id: page_id})
+    content = "<p>Le contenu de la page</p>"
+    render(conn, :shower, %{
+      layout: {LdQWeb.Layouts, :showcase},
+      page_id: page_id,
+      content: content
+    })
   end
 
 
