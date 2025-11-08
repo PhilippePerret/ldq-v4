@@ -30,6 +30,11 @@ defmodule LdQWeb.Router do
     get "/", ArenaController, :home
   end
 
+  scope "/admin", LdQWeb do
+    pipe_through :browser
+    get "/", AdminController, :home
+  end
+
   scope "/biblio", LdQWeb do
     pipe_through :browser
 

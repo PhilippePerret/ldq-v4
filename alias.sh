@@ -1,7 +1,10 @@
 #!/bin/bash
 
 read -p "Chemin absolu du fichier/dossier source : " source
+basename=$(basename "$source")
 read -p "Chemin absolu du dossier destination : " dest
+read -p "Nom du fichier de destination destination [${basename%.*}] : " name
+name=${name:-${basename%.*}}
 
 if [ ! -e "$source" ]; then
   echo "Source inexistante"
@@ -14,6 +17,6 @@ if [ ! -d "$dest" ]; then
 fi
 
 basename=$(basename "$source")
-name="${basename%.*}"
+# name="${basename%.*}"
 
 ln -s "$source" "$dest/$name"

@@ -20,7 +20,8 @@ defmodule LdQWeb.Endpoint do
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: if(Mix.env() == :prod, do: "/ldq", else: "/"),
+    # at: if(Mix.env() == :prod, do: "/ldq", else: "/"),
+    at: "/",
     from: :ldq,
     gzip: true,
     only: LdQWeb.static_paths()
