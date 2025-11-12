@@ -1,3 +1,9 @@
+### 12/11/2025
+
+* Récupération des éléments visuels (bandeau…)
+* Chargement de la police Great Vibes (logo, bandeau…)
+* Création du flavicon
+
 ### 08/11/2025
 
 * Styling distant ok
