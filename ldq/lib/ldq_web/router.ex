@@ -22,6 +22,8 @@ defmodule LdQWeb.Router do
 
   scope "/comite", LdQWeb do
     pipe_through :browser
+    get "/sumbit-candidature", ComiteController, :submit_candidature
+    get "/aide", ComiteController, :aide
     get "/", ComiteController, :home
   end
 
