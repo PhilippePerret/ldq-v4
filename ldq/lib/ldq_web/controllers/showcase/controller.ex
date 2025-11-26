@@ -7,7 +7,7 @@ defmodule LdQWeb.ShowcaseController do
 
   def shower(conn, %{"page_id" => page_id} = _params) do
     IO.puts "Page à voir: #{inspect page_id}"
-    content = LdQ.PageLoader.load("#{page_id}.html", 'fr')
+    content = LdQ.PageLoader.load("#{page_id}.html", "fr")
     IO.puts "content = #{inspect content}"
     render(conn, :shower, %{
       layout: {LdQWeb.Layouts, :showcase},

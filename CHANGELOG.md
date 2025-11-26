@@ -1,3 +1,9 @@
+### 26/11/2025
+
+* Utilisation d'un dossier séparé pour mettre les fichiers sans refaire de release
+* Implémentation du service PageLoader pour atteindre ces pages
+* Première implémentation de Services/Icones.ex pour la gestion des icônes
+
 ### 12/11/2025
 
 * Récupération des éléments visuels (bandeau…)

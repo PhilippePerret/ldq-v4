@@ -1,6 +1,5 @@
 import Config
 
-config :ldq, :data_path, "/home/icare/www/ldq/data"
 
 # Note we also include the path to a cache manifest
 # containing the digested version of static files. This
@@ -17,7 +16,6 @@ config :ldq, LdQWeb.Endpoint,
   # cache_static_manifest: "priv/static/cache_manifest.json"
 
 config :ldq, env: :prod # pour pouvoir faire Application.get_env(:ldq, :env) 
-
 
 # Configures Swoosh API Client
 config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: LdQ.Finch

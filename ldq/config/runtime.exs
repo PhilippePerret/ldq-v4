@@ -5,6 +5,9 @@ if System.get_env("PHX_SERVER") do
 end
 
 if config_env() == :prod do
+
+  config :ldq, :data_path, "/home/icare/www/ldq/data"
+
   database_url = System.get_env("DATABASE_URL")
 
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
