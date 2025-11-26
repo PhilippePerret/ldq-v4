@@ -1,5 +1,8 @@
 import Config
 
+
+config :ldq, :data_path, "/Users/philippeperret/Programmes/Phoenix/LdQ/ldq-v4/ldq/data"
+
 # Configure your database
 config :ldq, LdQ.Repo,
   username: "postgres",

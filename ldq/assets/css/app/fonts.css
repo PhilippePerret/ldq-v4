@@ -15,7 +15,8 @@
 
 @font-face {
   font-family: "BelFonte";
-  src: url("/fonts/NanumMyeongjo-v2-Bold.ttf");
+  src: url("/fonts/NanumMyeongjo-v2-Bold.otf");
+  /* src: url("/fonts/NanumMyeongjo-v2-Bold.ttf"); */
   font-style:normal;
   font-weight:bold;
 }
